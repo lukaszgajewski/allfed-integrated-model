@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../../../img/favicon.ico">
+  <title>Animal populations - ALLFED Integrated Model</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../../../css/theme.css" />
+  <link rel="stylesheet" href="../../../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Animal populations";
+    var mkdocs_page_input_path = "modules/src/food_system/animal_populations.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../../../.." class="icon icon-home"> ALLFED Integrated Model</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../../..">ALLFED Integrated Food System Model</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Modules</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="#">Src</a>
+    <ul class="current">
+                <li class="toctree-l2 current"><a class="reference internal current" href="#">Food system</a>
+    <ul class="current">
+                <li class="toctree-l3 current"><a class="reference internal current" href="./">Animal populations</a>
+    <ul class="current">
+    <li class="toctree-l4"><a class="reference internal" href="#speciescurrentstate">SpeciesCurrentState</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters">Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns">Returns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_1">Returns</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#parameters_1">Parameters</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#returns_2">Returns</a>
+    </li>
+    </ul>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../calculate_animals_and_feed_over_time/">Calculate animals and feed over time</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../cellulosic_sugar/">Cellulosic sugar</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../feed_and_biofuels/">Feed and biofuels</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../food/">Food</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../greenhouses/">Greenhouses</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../meat_and_dairy/">Meat and dairy</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../methane_scp/">Methane scp</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../outdoor_crops/">Outdoor crops</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../seafood/">Seafood</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../seaweed/">Seaweed</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../stored_food/">Stored food</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../unit_conversions/">Unit conversions</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Import scripts no food trade</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../import_scripts_no_food_trade/create_crop_macros_csv/">Create crop macros csv</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../import_scripts_no_food_trade/create_nuclear_winter_csv/">Create nuclear winter csv</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Optimizer</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../optimizer/extract_results/">Extract results</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../optimizer/interpret_results/">Interpret results</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../optimizer/optimizer/">Optimizer</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../optimizer/parameters/">Parameters</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../optimizer/validate_results/">Validate results</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Scenarios</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/create_figure_1ab/">Create figure 1ab</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/create_figure_2abcde/">Create figure 2abcde</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/create_figure_3abcd/">Create figure 3abcd</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_ARG_1a_to_2d/">run ARG 1a to 2d</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_AUS_with_improved_numbers/">run AUS with improved numbers</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_USA_with_improved_numbers/">run USA with improved numbers</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_country_specific_KR/">run country specific KR</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_model_baseline/">Run model baseline</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_model_no_resilient_foods/">Run model no resilient foods</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_model_no_trade/">Run model no trade</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_model_with_resilient_foods/">Run model with resilient foods</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/run_scenario/">Run scenario</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../scenarios/scenarios/">Scenarios</a>
+                </li>
+    </ul>
+                </li>
+                <li class="toctree-l2"><a class="reference internal" href="#">Utilities</a>
+    <ul>
+                <li class="toctree-l3"><a class="reference internal" href="../../utilities/import_utilities/">Import utilities</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../utilities/make_powerpoint/">Make powerpoint</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../utilities/plotter/">Plotter</a>
+                </li>
+                <li class="toctree-l3"><a class="reference internal" href="../../utilities/print_parameters/">Print parameters</a>
+                </li>
+    </ul>
+                </li>
+    </ul>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../../..">ALLFED Integrated Model</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Modules &raquo;</li>
+        
+      
+        
+          <li>Src &raquo;</li>
+        
+      
+        
+          <li>Food system &raquo;</li>
+        
+      
+    
+    <li>Animal populations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="_1"></h1>
+<h2 id="speciescurrentstate">SpeciesCurrentState</h2>
+<p><a href="https://github.com/allfed/allfed-integrated-model/blob/master/src/food_system/animal_populations.py/#L20">source</a></p>
+<pre><code class="language-python">SpeciesCurrentState(
+   animal_type, population, slaughter, pregnant, starving, feed_required,
+   carb_requirement, protein_requirement, fat_requirement
+)
+</code></pre>
+<hr />
+<p>Class to store animal population data in. Needs to store the following: animal type, population, and slaughter.</p>
+<h2 id="parameters">Parameters</h2>
+<p>animal_type : str
+Type of animal (beef, pork, chicken etc...)
+population : int
+Number of animals (total)
+slaughter : int
+Number of animals slaughtered this month
+pregnant : int
+Number of animals pregnant this month
+starving : int
+Number of animals starving this month
+feed_required : int
+Amount of feed required this month</p>
+<hr />
+<h3 id="read_animal_population_data">read_animal_population_data</h3>
+<p><a href="https://github.com/allfed/allfed-integrated-model/blob/master/src/food_system/animal_populations.py/#L64">source</a></p>
+<pre><code class="language-python">.read_animal_population_data()
+</code></pre>
+<hr />
+<p>Read animal population data from CSV file</p>
+<h2 id="returns">Returns</h2>
+<p>df_animal_stock_info : pandas dataframe
+Dataframe containing animal population data</p>
+<hr />
+<h3 id="read_animal_nutrition_data">read_animal_nutrition_data</h3>
+<p><a href="https://github.com/allfed/allfed-integrated-model/blob/master/src/food_system/animal_populations.py/#L104">source</a></p>
+<pre><code class="language-python">.read_animal_nutrition_data()
+</code></pre>
+<hr />
+<p>"
+Read animal nutrition data from CSV file</p>
+<h2 id="returns_1">Returns</h2>
+<p>df_animal_nutrition : pandas dataframe
+Dataframe containing animal nutrition data</p>
+<hr />
+<h3 id="create_animal_objects">create_animal_objects</h3>
+<p><a href="https://github.com/allfed/allfed-integrated-model/blob/master/src/food_system/animal_populations.py/#L131">source</a></p>
+<pre><code class="language-python">.create_animal_objects(
+   df_animal_stock_info, df_animal_nutrition
+)
+</code></pre>
+<hr />
+<p>Create animal objects from dataframes</p>
+<h2 id="parameters_1">Parameters</h2>
+<p>df_animal_stock_info : pandas dataframe
+Single dimension Dataframe containing animal population data for each country</p>
+<hr />
+<pre><code>Dataframe containing animal nutrition data
+</code></pre>
+<h2 id="returns_2">Returns</h2>
+<pre><code>Object containing animal population data for beef cattle
+Object containing animal population data for pigs
+Object containing animal population data for chickens
+</code></pre>
+<hr />
+<h3 id="create_available_feed_object">create_available_feed_object</h3>
+<p><a href="https://github.com/allfed/allfed-integrated-model/blob/master/src/food_system/animal_populations.py/#L209">source</a></p>
+<pre><code class="language-python">.create_available_feed_object()
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../calculate_animals_and_feed_over_time/" class="btn btn-neutral float-right" title="Calculate animals and feed over time">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../../.." class="btn btn-neutral" title="ALLFED Integrated Food System Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>Me</p>
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../../../.." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../calculate_animals_and_feed_over_time/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '../../../..';</script>
+    <script src="../../../../js/theme_extra.js" defer></script>
+    <script src="../../../../js/theme.js" defer></script>
+      <script src="../../../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
