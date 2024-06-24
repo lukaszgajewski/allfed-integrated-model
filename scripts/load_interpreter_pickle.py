@@ -27,6 +27,8 @@ def load_data():
 
     kcals = pd.DataFrame(kcals)  # this is total kcals per category
     meat = pd.DataFrame(irr.meat_dictionary)  # this is total meat culled
+    meat = meat.drop(columns=["milk_cattle"])
+    meat.columns = [c.replace("meat_", "") for c in meat.columns]
     meat_ratio = meat.div(meat.sum(axis=1), axis=0)  # this is ratio of meat culled
     # I am using this ratio as a proxy for the composition of the 'meat' variable in the optimiser'
     # TODO: ask Simon if there is a better way than this
@@ -35,6 +37,7 @@ def load_data():
 
 def main():
     kcals, meat_ratio = load_data()
+    print(meat_ratio.columns)
 
 
 if __name__ == "__main__":
